@@ -1,0 +1,13 @@
+.home > section {
+    padding: 5rem 0;
+  }
+  
+  .home > section:nth-child(even) {
+    background-color: var(--light-gray);
+  }
+  
+  @media (max-width: 768px) {
+    .home > section {
+      padding: 3rem 0;
+    }
+  }

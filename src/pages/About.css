@@ -1,0 +1,66 @@
+.about-hero {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .about-hero h1 {
+    color: var(--accent-color);
+    font-size: 3rem;
+    margin-top: 3.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.25rem;
+  }
+  
+  .about-content {
+    padding: 4rem 0;
+  }
+  
+  .about-section {
+    margin-bottom: 3rem;
+  }
+  
+  .about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .about-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .about-section li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .about-section li::before {
+    content: '\2022';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .about-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .about-hero p {
+      font-size: 1rem;
+    }
+  
+    .about-content {
+      padding: 2rem 0;
+    }
+  
+    .about-section h2 {
+      font-size: 1.5rem;
+    }
+  }
