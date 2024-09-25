@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.fc4b3e6a.css",
-    "main.js": "/static/js/main.e28d597f.js",
-    "index.html": "/index.html",
-    "main.fc4b3e6a.css.map": "/static/css/main.fc4b3e6a.css.map",
-    "main.e28d597f.js.map": "/static/js/main.e28d597f.js.map"
+    "main.css": "/CarlosARL/CarlosARL.github.io/static/css/main.fc4b3e6a.css",
+    "main.js": "/CarlosARL/CarlosARL.github.io/static/js/main.3bc09421.js",
+    "index.html": "/CarlosARL/CarlosARL.github.io/index.html",
+    "main.fc4b3e6a.css.map": "/CarlosARL/CarlosARL.github.io/static/css/main.fc4b3e6a.css.map",
+    "main.3bc09421.js.map": "/CarlosARL/CarlosARL.github.io/static/js/main.3bc09421.js.map"
   },
   "entrypoints": [
     "static/css/main.fc4b3e6a.css",
-    "static/js/main.e28d597f.js"
+    "static/js/main.3bc09421.js"
   ]
 }
