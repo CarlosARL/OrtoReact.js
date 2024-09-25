@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 import './ServicesPreview.css';
 
 const ServicesPreview = () => {
@@ -26,21 +25,41 @@ const ServicesPreview = () => {
     }
   ];
 
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="services-preview">
+    <section id="services-preview" className="services-preview section" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">Nossos Serviços</h2>
+        <p className="section-subtitle">Suporte Profissional para Cirurgias Ortopédicas</p>
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
+            <div key={index} className="service-item">
               <i className={service.icon}></i>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </div>
           ))}
         </div>
-        <div className="text-center">
-          <Link to="/services" className="btn btn-primary">Conheça Todos os Serviços</Link>
+        <div className="services-cta">
+          <a href="/services" className="btn btn-primary">Saiba Mais Sobre Nossos Serviços</a>
         </div>
       </div>
     </section>

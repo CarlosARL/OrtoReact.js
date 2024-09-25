@@ -1,44 +1,195 @@
 .products-preview {
-    background-color: var(--light-gray);
+  background-color: var(--light-gray);
+  padding: 80px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.products-preview.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.products-slider {
+  margin-top: 40px;
+}
+
+.product-item {
+  padding: 20px;
+}
+
+.product-image {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-info {
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-info {
+  transform: translateY(-5px);
+}
+
+.product-info h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.product-info .btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-info .btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-3px);
+}
+
+/* Slick slider custom styles */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: var(--primary-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: var(--accent-color);
+}
+
+.slick-prev {
+  left: -40px;
+}
+
+.slick-next {
+  right: -40px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: var(--background-color);
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
+  .slick-prev {
+    left: -30px;
   }
-  
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+
+  .slick-next {
+    right: -30px;
   }
-  
-  .product-card {
-    background-color: var(--background-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .products-preview {
+    padding: 60px 0;
   }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
+
+  .section-title {
+    font-size: 2rem;
   }
-  
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+
+  .section-subtitle {
+    font-size: 1rem;
   }
-  
-  .product-card h3 {
-    padding: 1rem;
-    margin-bottom: 0.5rem;
+
+  .slick-prev,
+  .slick-next {
+    display: none !important;
   }
-  
-  .product-card p {
-    padding: 0 1rem 1rem;
-    color: var(--secondary-color);
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.8rem;
   }
-  
-  @media (max-width: 768px) {
-    .products-grid {
-      grid-template-columns: 1fr;
-    }
+
+  .section-subtitle {
+    font-size: 0.9rem;
   }
+
+  .product-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .product-info p {
+    font-size: 0.8rem;
+  }
+}
+

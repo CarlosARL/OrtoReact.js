@@ -5,21 +5,27 @@ import './ServiceList.css';
 
 const ServiceList = () => {
   return (
-    <div className="service-list">
-      <div className="container">
-        <h2>Nossos Serviços</h2>
-        <p>Soluções completas para profissionais de saúde</p>
-        <div className="services-grid">
-          {services.map(service => (
-            <div key={service.id} className="service-card">
-              <i className={service.icon}></i>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <Link to={`/services/${service.id}`} className="btn btn-secondary">Saiba Mais</Link>
-            </div>
-          ))}
+    <div className="services-page">
+      <section className="services-hero">
+        <div className="container">
+          <h1>Nossos Serviços</h1>
+          <p>Soluções completas para profissionais de saúde</p>
         </div>
-      </div>
+      </section>
+
+      <section className="services-content">
+        <div className="container">
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <div key={index} className="service-card">
+                <i className={service.icon}></i>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

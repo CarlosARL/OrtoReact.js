@@ -1,16 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 import './ContactCTA.css';
 
 const ContactCTA = () => {
+  const ctaContentRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(ctaContentRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="contact-cta">
+    <section id="contact-cta" className="contact-cta section">
       <div className="container">
-        <h2 className="cta-title">Pronto para Melhorar seus Procedimentos Ortopédicos?</h2>
-        <p className="cta-description">
-          Entre em contato conosco hoje para descobrir como podemos ajudar você a oferecer o melhor cuidado aos seus pacientes.
-        </p>
-        <Link to="/contact" className="btn btn-primary">Fale Conosco</Link>
+        <div className="cta-content" ref={ctaContentRef}>
+          <h2>Precisa de Suporte?</h2>
+          <p>Nossa equipe está pronta para atender suas necessidades em próteses ortopédicas e instrumentação.</p>
+          <a href="/contact" className="btn btn-primary">Entre em Contato</a>
+        </div>
       </div>
     </section>
   );

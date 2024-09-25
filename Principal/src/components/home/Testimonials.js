@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './Testimonials.css';
 
 const Testimonials = () => {
@@ -20,31 +23,54 @@ const Testimonials = () => {
     }
   ];
 
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
   };
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="testimonials">
+    <section id="testimonials" className="testimonials section" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">O Que Nossos Clientes Dizem</h2>
-        <div className="testimonial-carousel">
-          <div className="testimonial-content">
-            <blockquote>"{testimonials[currentTestimonial].quote}"</blockquote>
-            <p className="testimonial-author">{testimonials[currentTestimonial].author}</p>
-            <p className="testimonial-title">{testimonials[currentTestimonial].title}</p>
-          </div>
-          <div className="testimonial-controls">
-            <button onClick={prevTestimonial}><i className="fas fa-chevron-left"></i></button>
-            <button onClick={nextTestimonial}><i className="fas fa-chevron-right"></i></button>
-          </div>
-        </div>
+        <p className="section-subtitle">Depoimentos de profissionais que confiam na Amazon Ortho</p>
+        <Slider {...settings} className="testimonials-carousel">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-item">
+              <blockquote>
+                <p>{testimonial.quote}</p>
+              </blockquote>
+              <div className="testimonial-author">
+                <h4>{testimonial.author}</h4>
+                <p>{testimonial.title}</p>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );
