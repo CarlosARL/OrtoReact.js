@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/CarlosARL.github.io/static/css/main.84248abc.css",
+    "main.js": "/CarlosARL.github.io/static/js/main.d40aebbd.js",
+    "static/media/slick.svg": "/CarlosARL.github.io/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/CarlosARL.github.io/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/CarlosARL.github.io/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/CarlosARL.github.io/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/CarlosARL.github.io/index.html",
+    "main.84248abc.css.map": "/CarlosARL.github.io/static/css/main.84248abc.css.map",
+    "main.d40aebbd.js.map": "/CarlosARL.github.io/static/js/main.d40aebbd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84248abc.css",
+    "static/js/main.d40aebbd.js"
+  ]
+}
