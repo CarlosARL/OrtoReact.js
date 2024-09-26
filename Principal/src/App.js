@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -7,8 +7,24 @@ import Products from './pages/Products';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import ProductDetail from './components/products/ProductDetail';
+import '../src/styles/App.css'
 
 function App() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.pageYOffset > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Router>
       <Layout>
@@ -21,6 +37,13 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
+      <button 
+        onClick={scrollToTop} 
+        className={`scroll-to-top ${showScrollTop ? 'visible' : ''}`} 
+        aria-label="Voltar ao topo"
+      >
+        <i className="fas fa-arrow-up"></i>
+      </button>
     </Router>
   );
 }

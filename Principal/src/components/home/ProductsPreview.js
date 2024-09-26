@@ -15,13 +15,13 @@ const ProductsPreview = () => {
     {
       name: "Próteses de Quadril",
       description: "Opções modernas para substituição total e parcial do quadril.",
-      image: "https://www.zimmerbiomet.com/en/products-and-solutions/specialties/hip/_jcr_content/root/container/container_265335360/container_1041203467/product_card/image.coreimg.png/1721251993324/echo-bi-metric-full-length-g7-pps-e1-delta-1.png",
+      image: "/images/hip-prosthesis.jpg",
       link: "/products#hip"
     },
     {
       name: "Próteses de Ombro",
       description: "Soluções inovadoras para artroplastia total e reversa do ombro.",
-      image: "https://www.zimmerbiomet.com/en/products-and-solutions/specialties/shoulder/_jcr_content/root/container/container_265335360/container_807943635/product_card_copy_co/image.coreimg.png/1717783248218/ashcomshoulder.png",
+      image: "/images/shoulder-prosthesis.jpg",
       link: "/products#shoulder"
     },
     {
@@ -42,15 +42,17 @@ const ProductsPreview = () => {
     autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 1,
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 600,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1
         }
       }
     ]
@@ -63,20 +65,26 @@ const ProductsPreview = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
+            entry.target.classList.add('visible');
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    observer.observe(sectionRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section id="products-preview" className="products-preview section" ref={sectionRef}>
+    <section id="products-preview" className="products-preview" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">Nossos Produtos</h2>
         <p className="section-subtitle">Distribuição de Próteses Ortopédicas de Qualidade</p>
