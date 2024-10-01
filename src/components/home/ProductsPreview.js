@@ -9,19 +9,20 @@ const ProductsPreview = () => {
     {
       name: "Próteses de Joelho",
       description: "Soluções avançadas para artroplastia total e parcial do joelho.",
-      image: "https://www.zimmerbiomet.com/en/products-and-solutions/specialties/knee/_jcr_content/root/container/container_265335360/container_1041203467_1111888084/product_card_copy_1189395050/image.coreimg.png/1722011892796/nexgen-legacy-constrained-condylar-lcck-1-cmyk-straightened-450x450.png",
+      image: "https://www.ortocir.com.br/wp-content/uploads/2021/03/Imagens-New-Wave-principal-foto-1-1-350x350.png",
+      
       link: "/products#knee"
     },
     {
       name: "Próteses de Quadril",
       description: "Opções modernas para substituição total e parcial do quadril.",
-      image: "/images/hip-prosthesis.jpg",
+      image: "https://www.ortocir.com.br/wp-content/uploads/2021/03/ortocir-hastes-famorais-p7tg1dxafix6mxf.png",
       link: "/products#hip"
     },
     {
       name: "Próteses de Ombro",
       description: "Soluções inovadoras para artroplastia total e reversa do ombro.",
-      image: "/images/shoulder-prosthesis.jpg",
+      image: "https://www.zimmerbiomet.com/en/products-and-solutions/specialties/shoulder/_jcr_content/root/container/container_265335360/container_807943635/product_card_copy_co/image.coreimg.png/1717783248218/ashcomshoulder.png",
       link: "/products#shoulder"
     },
     {
@@ -92,7 +93,7 @@ const ProductsPreview = () => {
           {products.map((product, index) => (
             <div key={index} className="product-item">
               <div className="product-image">
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} width="10" height="10" />
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>
